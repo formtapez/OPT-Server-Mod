@@ -33,4 +33,6 @@ if !(_side isEqualTo west or _side isEqualTo east or _side isEqualTo independent
 if !(_flag in GVAR(nato_flags) or _flag in GVAR(csat_flags) or _flag in GVAR(aaf_flags)) exitWith{};
 
 // Logge Fahnen-Eroberung
-["Flag", "Conquer", [_flag, getPlayerUID _unit, name _unit, side _unit, _flag distance2D _unit]] call OPT_LOGGING_fnc_writelog;
+["Flag", "Conquer", [_flag, getPlayerUID _unit, name _unit, side _unit, _flag distance2D _unit]] call EFUNC(LOGGING,writelog);
+
+["ocap_handleCustomEvent", ["captureFlag", name _unit]] call CBA_fnc_serverEvent;
